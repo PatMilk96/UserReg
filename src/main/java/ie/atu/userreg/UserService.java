@@ -1,10 +1,15 @@
 package ie.atu.userreg;
 
-public class UserService {
-    private EmailService emailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-    public UserService() {
-        this.emailService = new EmailService();
+@Service
+public class UserService {
+    private final EmailService emailService;
+
+    @Autowired
+    public UserService(EmailService emailService) {
+        this.emailService = emailService;
     }
 
     public void registerUser(String name, String email){
