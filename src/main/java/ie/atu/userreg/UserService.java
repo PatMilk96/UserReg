@@ -7,8 +7,7 @@ public class UserService {
         this.emailService = new EmailService();
     }
 
-    public void registerUser(String username, String email){
-
+    public void registerUser(String name, String email){
         emailService.sendEmail(email, "Welcome to our platform!");
     }
 }

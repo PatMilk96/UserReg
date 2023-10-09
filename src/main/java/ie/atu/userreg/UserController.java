@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    private UserService us;
-    @GetMapping("/registerUser/{name}/{email}")
-    public UserController register(@PathVariable int name, @PathVariable int email){
+    private final UserService us;
 
-        return null;
+    public UserController(){
+        this.us = new UserService();
+    }
+    @GetMapping("/registerUser/{name}/{email}")
+    public void registerUser(@PathVariable String name, @PathVariable String email){
+        us.registerUser(name, email);
     }
 }
