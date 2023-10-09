@@ -9,8 +9,8 @@ public class UserController {
 
     private final UserService us;
 
-    public UserController(){
-        this.us = new UserService();
+    public UserController(UserService us){
+        this.us = us;
     }
     @GetMapping("/registerUser/{name}/{email}")
     public void registerUser(@PathVariable String name, @PathVariable String email){
